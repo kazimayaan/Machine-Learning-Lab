@@ -59,7 +59,7 @@ OUTPUT:-
 ---- Find-s hypothesis ----
 ['Sunny', 'Warm', '?', 'Strong', '?', '?', 'Yes']
 
-----The final Genralize output..........
+----The final Genralized output..........
 ['Sunny', '?', '?', '?', '?', '?']
 ['?', 'Warm', '?', '?', '?', '?']
 ['?', '?', '?', '?', '?', '?']
