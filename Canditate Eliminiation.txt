@@ -1,0 +1,67 @@
+import csv
+hypo=[]
+data=[]
+temp=[]
+file='C:\\Users\\Admin\\Desktop\\Training_examples.csv'
+fd = csv.reader(open(file))	
+print("------The given training examples are------")	
+for line in fd:		
+	print(line)		
+	if line[-1]== "Yes":
+		data.append(line)
+	if line[-1]== "No":
+		temp.append(line)					
+			
+print("\n------The positive examples are: Enjoy swimming----");
+for line in data:
+	print(line);
+print("\n------The negetive examples are: Enjoy swimming----");
+for line in temp:
+	print(line);	
+row= len(data);
+col=len(data[0]);
+for j in range(col):	
+	hypo.append(data[0][j]);
+
+for i in range(row):	
+	for j in range(col):
+		if hypo[j]!=data[i][j]:
+			hypo[j]='?'			
+print("\n---- Find-s hypothesis ----");
+print(hypo)
+
+print("\n----The final Genralize output..........");
+row= len(temp);
+col=len(temp[0]);
+for i in range(row):    
+    for j in range(col-1):
+        gen=['?','?','?','?','?','?']
+        if hypo[j]!=temp[i][j]:
+            gen[j]=hypo[j]
+            print(gen)
+
+
+OUTPUT:-
+------The given training examples are------
+['Sunny', 'Warm', 'Normal', 'Strong', 'Warm', 'Same', 'Yes']
+['Sunny', 'Warm', 'High', 'Strong', 'Warm', 'Same', 'Yes']
+['Rainy', 'Cold', 'High', 'Strong', 'Warm', 'Change', 'No']
+['Sunny', 'Warm', 'High', 'Strong', 'Cool', 'Change', 'Yes']
+
+------The positive examples are: Enjoy swimming----
+['Sunny', 'Warm', 'Normal', 'Strong', 'Warm', 'Same', 'Yes']
+['Sunny', 'Warm', 'High', 'Strong', 'Warm', 'Same', 'Yes']
+['Sunny', 'Warm', 'High', 'Strong', 'Cool', 'Change', 'Yes']
+
+------The negetive examples are: Enjoy swimming----
+['Rainy', 'Cold', 'High', 'Strong', 'Warm', 'Change', 'No']
+
+---- Find-s hypothesis ----
+['Sunny', 'Warm', '?', 'Strong', '?', '?', 'Yes']
+
+----The final Genralize output..........
+['Sunny', '?', '?', '?', '?', '?']
+['?', 'Warm', '?', '?', '?', '?']
+['?', '?', '?', '?', '?', '?']
+['?', '?', '?', '?', '?', '?']
+['?', '?', '?', '?', '?', '?']
