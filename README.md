@@ -5,3 +5,5 @@ Lab programs
 
 
 2:Linear Regression
+
+3:KNN Classifier
