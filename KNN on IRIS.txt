@@ -1,0 +1,61 @@
+import numpy as np
+import csv
+import pandas as pd
+import matplotlib.pyplot as plt
+def KNN(datax):
+    print("ENTER IRIS speal length , speal width ,petal lenght and petal width")
+    a,b,c,d=input().split()
+    a=float(a)
+    b=float(b)
+    c=float(c)
+    d=float(d)
+    
+    for line in datax:
+        x=float(line[0])
+        y=float(line[1])
+        z=float(line[2])
+        w=float(line[3])
+        
+        dist=np.sqrt((x-a)**2+(y-b)**2+(z-c)**2+(w-d)**2)        
+        line.append(dist)
+        
+    #display(datax)
+    print("HOW MANY NEARST SURVEY K=")
+    k=int(input())
+    datax.sort(key = lambda i: i[4])
+    print("K sortest distance")
+    #display(datax)
+    vircount=0
+    vercount=0
+    setcount=0
+    
+    for j in range(k):
+        print(datax[j])
+        if datax[j][4]=='Iris-virginica':
+            vircount+=1
+        if datax[j][4]=='Iris-versicolor':
+            vercount+=1
+        if datax[j][4]=='Iris-setosa':
+            setcount+=1
+        
+    if(vircount>vercount and vircount>setcount):
+            print("..........IRIS FLOWER BELONG VIRGINICA CATOGARY.............")
+    elif(vercount>vircount and vercount>setcount):
+            print("..........IRIS FLOWER BELONG VERSICOLOR CATOGARY.............")
+    else:    
+            print("..........IRIS FLOWER BELONG SETOSA CATOGARY.............")      
+   
+
+
+
+def main():
+    file="C:\\Users\\AMCEC\\Desktop\\iris.csv"
+    data=pd.read_csv(file)
+    display(data)
+    fd=csv.reader(open(file))
+    datax=[]
+    for line in fd:
+        datax.append(line)
+    KNN(datax[1:])      
+        
+main()
