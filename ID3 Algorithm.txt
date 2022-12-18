@@ -1,0 +1,30 @@
+import pandas
+from sklearn import tree
+from sklearn.tree import DecisionTreeClassifier
+import matplotlib.pyplot as plt
+
+df = pandas.read_csv("C:\\Users\\AMCEC\\Desktop\\DATA SCIENCE LAB\\DATA SET\\tennis.csv")
+display(df)
+d = {'Sunny': 0, 'Rainy': 1, 'Overcast': 2}
+df['Outlook'] = df['Outlook'].map(d)
+d = {'Hot': 0, 'Mild': 1, 'Cool': 2}
+df['Temperature'] = df['Temperature'].map(d)
+d = {'High': 1, 'Normal': 0}
+df['Humidity'] = df['Humidity'].map(d)
+d = {'No': 1, 'Yes': 0}
+df['PlayTennis'] = df['PlayTennis'].map(d)
+#d = {'False': 1, 'True': 0}
+#df['Windy'] = df['Windy'].map(d)
+#print(df['Windy'])
+display(df)
+
+features = ['Outlook', 'Temperature', 'Humidity', 'Windy']
+
+X = df[features]
+y = df['PlayTennis']
+print(X)
+print(y)
+dtree = DecisionTreeClassifier()
+dtree = dtree.fit(X, y)
+
+tree.plot_tree(dtree, feature_names=features)
