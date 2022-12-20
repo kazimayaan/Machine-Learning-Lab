@@ -11,3 +11,5 @@ Lab programs
 4:Candidate Elimination Algorithm
 
 5:Kmeans Algorithm
+
+6: ID3 Algorithm
