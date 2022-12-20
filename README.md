@@ -13,3 +13,5 @@ Lab programs
 5:Kmeans Algorithm
 
 6: ID3 Algorithm
+
+7: BackPropagation Algorithm
